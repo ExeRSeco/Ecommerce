@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+body {
+  background-color: #ededed;
+}
+
+.container {
+  width: 1200px;
+  max-width: 1400px;
+  margin: auto;
+  height: 100vh;
+}
+
+
+
+
+
+
+
+
+
+

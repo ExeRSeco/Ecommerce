@@ -1,0 +1,64 @@
+import { ReactNode } from "react";
+import { Control, FieldError} from "react-hook-form";
+import { FormData } from "../Schemas/SchemaForms";
+
+//INTERFACES FOR CONTACT FORM
+interface AppRouterProps {
+    children: ReactNode;
+}
+
+interface ContactInputsProps {
+    label: string;
+    name: keyof FormData;
+    type?: string;
+    placeholder?: string;
+    error?: FieldError;
+    control: Control<FormData>;
+}
+interface ContactTypeProps {
+    control: Control<FormData>;
+    error?: FieldError;
+  }
+interface TextAreaProps {
+    control: Control<FormData>;
+    error?: FieldError;
+    label: string;
+    placeholder?: string;
+}
+
+//INTERFACES FOR PRODUCTS
+
+interface Product {
+    id: number;
+    title: string;
+    price: number;
+    description: string;
+    category: string;
+    image: string;
+}
+
+
+interface CartItem {
+    id: number;
+    title: string;
+    price: number;
+    image: string;
+    quantity: number;
+}
+
+interface CartState {
+    cartItems: CartItem[]
+}
+
+interface CartAction {
+    type: string
+    payload: CartItem
+}
+
+interface CartContextType {
+    state: CartState;
+    dispatch: React.Dispatch<CartAction>;
+}
+
+
+export type { AppRouterProps, ContactInputsProps, ContactTypeProps, TextAreaProps, Product, CartState, CartAction, CartItem, CartContextType}
