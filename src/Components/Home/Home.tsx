@@ -7,6 +7,7 @@ export const Home = () => {
     
     return (
         <main className="main-container">
+            
             <Hero />
             <Toaster />
             <About />

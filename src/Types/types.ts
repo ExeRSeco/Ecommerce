@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Control, FieldError} from "react-hook-form";
 import { FormData } from "../Schemas/SchemaForms";
-
+import { SchemaFormCheckout } from "../Schemas/SchemaFormCheckout";
 //INTERFACES FOR CONTACT FORM
 interface AppRouterProps {
     children: ReactNode;
@@ -60,5 +60,13 @@ interface CartContextType {
     dispatch: React.Dispatch<CartAction>;
 }
 
+interface CreditCardInputsProps {
+    label: string;
+    name: keyof SchemaFormCheckout;
+    type?: string;
+    placeholder?: string;
+    error?: FieldError;
+    control: Control<SchemaFormCheckout>;
+}   
 
-export type { AppRouterProps, ContactInputsProps, ContactTypeProps, TextAreaProps, Product, CartState, CartAction, CartItem, CartContextType}
+export type { AppRouterProps, ContactInputsProps, ContactTypeProps, TextAreaProps, Product, CartState, CartAction, CartItem, CartContextType, CreditCardInputsProps}

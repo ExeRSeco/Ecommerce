@@ -44,7 +44,7 @@ export const CartModal = ({children}: AppRouterProps) => {
 
     return createPortal(
         <div  className="overlay bg-black/50 fixed top-0 left-0 w-full h-full z-10" onClick={closeModal}>
-            <div className="cart-modal-container bg-white rounded-md p-4 w-full max-w-3xl h-[80vh] shadow-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 fixed" onClick={handleContentClick} ref={modalRef}>
+            <div className="cart-modal-container bg-white rounded-md p-4 w-full max-w-3xl min-h-[200px] max-h-[90vh] shadow-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 fixed overflow-y-auto" onClick={handleContentClick} ref={modalRef}>
                 {children}
 
             </div>

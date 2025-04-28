@@ -1,5 +1,5 @@
 
-import {FaUser, FaCartPlus} from 'react-icons/fa'
+import {FaUser, FaShoppingCart} from 'react-icons/fa'
 import { useModalContext } from '../../Contexts/ModalContext'
 import { useCart } from '../../Hooks/useCartContext'
 export const Header = () => {
@@ -41,8 +41,10 @@ export const Header = () => {
                     <div className="header__menu--login flex items-center gap-2">
                         <a href="/login" className='button-login--header flex items-center gap-2 p-2 rounded-md text-white font-bold cursor-pointer hover:bg-blue-600 transition-all duration-300'> <FaUser className='text-xl'/></a>
                         <button onClick={openModal} className='button-cart--header flex items-center gap-2 p-2 rounded-md text-white font-bold cursor-pointer hover:bg-blue-600 transition-all duration-300'> 
-                        <FaCartPlus className='text-xl'/>
-                        <span className="cart-count text-white font-bold">{ cartItems.length > 0 ? cartItems.length : 0 }</span>
+                    
+                        {location.pathname !== '/checkout' && <FaShoppingCart className='text-xl'/>}
+                        {location.pathname !== '/checkout' && <span className="cart-count text-white font-bold">{ cartItems.length > 0 ? cartItems.length : 0 }</span> }
+                        
                         </button>
                         
                     </div>
