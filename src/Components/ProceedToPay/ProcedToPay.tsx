@@ -1,16 +1,14 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { SubmitHandler, useForm } from "react-hook-form"
 import {SchemaFormCheckout, schemaFormCheckout} from "../../Schemas/SchemaFormCheckout"
-import { CreditCardInputs } from "./CreditCardInputs"
+import { CreditCardInputs } from "./FormInputProceed"
 import { useNavigate } from "react-router-dom"
 
 
 export const CreditCard = () => {
     const navigate = useNavigate()
-    const handleNavigate = () => {
-        navigate("/paymethods")
-    }
-    const {control, handleSubmit, formState: {errors}} = useForm<SchemaFormCheckout>({
+    
+    const {control, handleSubmit, formState: {errors, isValid}} = useForm<SchemaFormCheckout>({
         resolver: zodResolver(schemaFormCheckout),
         defaultValues: {
             name: "",
@@ -24,9 +22,11 @@ export const CreditCard = () => {
         mode: "onBlur"
     })
    
-
     const onSubmit:SubmitHandler<SchemaFormCheckout> = (data) => {
-        console.log(data)
+        if (isValid) {
+            console.log(data)
+            navigate("/paymethods")
+        }
     }
 
     return (
@@ -39,7 +39,17 @@ export const CreditCard = () => {
             <CreditCardInputs name="state" control={control} label="State" type="text" error={errors.state} />
             <CreditCardInputs name="zip" control={control} label="Zip" type="number" error={errors.zip} />
             
-            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md w-full cursor-pointer hover:bg-blue-600 transition-colors " onClick={handleNavigate}>Proceed to Payment</button>
+            <button 
+                type="submit" 
+                className={`bg-blue-500 text-white px-4 py-2 rounded-md w-full cursor-pointer transition-colors ${
+                    !isValid ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-600'
+                }`}
+                disabled={!isValid}
+
+                
+            >
+                Proceed to Payment
+            </button>
        </form>
     )
 }

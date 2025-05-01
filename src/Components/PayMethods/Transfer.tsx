@@ -1,7 +1,7 @@
 
 export const Transfer = () => {
     return (
-        <div>
+        <div className="bg-white rounded-md shadow-md w-[500px] p-4">
            <p>Name: <span className="font-bold">John Doe</span></p>
            <p>Account Number: <span className="font-bold">1234567890</span></p>
            <p>Bank Name: <span className="font-bold">Bank of America</span></p>

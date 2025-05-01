@@ -1,6 +1,7 @@
 import { FaMartiniGlassEmpty } from "react-icons/fa6";
 
 export const CategoriesMainSection = () => {
+   
 
     return (
         <div className="categories-main-section bg-gray-100 h-[100vh] flex flex-col items-center justify-center">

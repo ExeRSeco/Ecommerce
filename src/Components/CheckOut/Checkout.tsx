@@ -1,6 +1,6 @@
 import { CheckoutProvider } from "../../Contexts/CheckoutContext"
 import { CartTable } from "../CartTable/Table"
-import { CreditCard } from "../CreditCard/CreditCard"
+import { CreditCard } from "../ProceedToPay/ProcedToPay"
 
 export const Checkout = () => {
 //   TODO: Add a form to checkout
