@@ -51,6 +51,7 @@ export const CardForm = () => {
                 <label className="block text-sm font-medium mb-1">Card Number</label>
                 <input
                     type="text"
+                    id="number"
                     name="number"
                     value={formData.number}
                     onChange={handleChange}
@@ -70,6 +71,7 @@ export const CardForm = () => {
                 <label className="block text-sm font-medium mb-1">Fecha de vencimiento</label>
                 <input
                     type="text"
+                    id="expiry"
                     name="expiry"
                     value={formData.expiry}
                     onChange={handleChange}
@@ -89,6 +91,7 @@ export const CardForm = () => {
                 <label className="block text-sm font-medium mb-1">CVV</label>
                 <input
                     type="text"
+                    id="cvv"
                     name="cvv"
                     value={formData.cvv}
                     onChange={handleChange}
@@ -108,6 +111,7 @@ export const CardForm = () => {
                 <label className="block text-sm font-medium mb-1">Nombre del titular</label>
                 <input
                     type="text"
+                    id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}

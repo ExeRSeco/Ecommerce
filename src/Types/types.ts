@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, ErrorInfo } from "react";
 import { Control, FieldError} from "react-hook-form";
 import { FormData } from "../Schemas/SchemaForms";
 import { SchemaFormCheckout } from "../Schemas/SchemaFormCheckout";
@@ -69,4 +69,14 @@ interface CreditCardInputsProps {
     control: Control<SchemaFormCheckout>;
 }   
 
-export type { AppRouterProps, ContactInputsProps, ContactTypeProps, TextAreaProps, Product, CartState, CartAction, CartItem, CartContextType, CreditCardInputsProps}
+interface ErrorBoundaryProps {
+    children: ReactNode;
+}
+
+interface ErrorBoundaryState {
+    hasError: boolean;
+    error: Error | null;
+    errorInfo: ErrorInfo | null;
+}
+
+export type { AppRouterProps, ContactInputsProps, ContactTypeProps, TextAreaProps, Product, CartState, CartAction, CartItem, CartContextType, CreditCardInputsProps, ErrorBoundaryProps, ErrorBoundaryState}

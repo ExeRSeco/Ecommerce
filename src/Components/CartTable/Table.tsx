@@ -2,6 +2,7 @@ import { useCart } from "../../Hooks/useCartContext"
 import { useCheckout } from "../../Contexts/CheckoutContext"
 import { useModalContext } from "../../Contexts/ModalContext"
 import { Link } from "react-router-dom"
+import { CartItem } from "../../Types/types"
 
 export const CartTable = () => {
     const {state, dispatch} = useCart()
@@ -15,6 +16,10 @@ export const CartTable = () => {
     
     const handleCheckout = () => {
         setModalState(false)
+    }
+   
+    const clearCart = () => {
+        dispatch({type: "CLEAR_CART", payload: {} as CartItem})     
     }
     
     return (
@@ -51,10 +56,10 @@ export const CartTable = () => {
                     ))}
                 </tbody>
             </table>
-            <div className={`flex justify-between items-center ${isCheckout ? 'bg-white border-t border-gray-200 shadow-lg' : 'bg-gray-900'} text-white p-4 rounded-b-md`}>
+            <div className={`flex justify-between items-center ${isCheckout ? 'bg-white border-t border-gray-200 shadow-lg' : 'bg-gray-900  text-white'} p-4 rounded-b-md`}>
                 <p className="text-lg font-bold">Total: ${total()}</p>
                 <div className="flex gap-4">
-                    <button className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-800 transition-all duration-300 cursor-pointer">Clear Cart</button>
+                    <button className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-800 transition-all duration-300 cursor-pointer" onClick={clearCart}>Clear Cart</button>
                     {!isCheckout && state.cartItems.length > 0 && (
                         <Link to="/checkout" onClick={handleCheckout} className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-800 transition-all duration-300 cursor-pointer">Checkout</Link>
                     )}

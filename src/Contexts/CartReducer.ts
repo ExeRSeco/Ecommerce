@@ -11,6 +11,12 @@ export const cartReducer = (state: CartState, action: CartAction) => {
    
 
     switch(action.type) {
+        case 'CLEAR_CART': {
+            return {
+                ...state,
+                cartItems: []
+            }
+        }
         case 'ADD_TO_CART': {
                 const {id} = action.payload
                

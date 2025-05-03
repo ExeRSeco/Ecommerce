@@ -2,7 +2,7 @@ import { Controller } from "react-hook-form"
 import { CreditCardInputsProps } from "../../Types/types"
 
 
-export const CreditCardInputs = ({name, control, label, type, error}: CreditCardInputsProps) => {
+export const FormInputProceed = ({name, control, label, type, error}: CreditCardInputsProps) => {
     return (
         <div className="mb-4 px-2 py-2 rounded-md justify-between items-center" >
             <label htmlFor={name} className="text-sm font-medium text-gray-700 mb-2 px-2">{label}</label>

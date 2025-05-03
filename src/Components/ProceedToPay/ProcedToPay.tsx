@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { SubmitHandler, useForm } from "react-hook-form"
 import {SchemaFormCheckout, schemaFormCheckout} from "../../Schemas/SchemaFormCheckout"
-import { CreditCardInputs } from "./FormInputProceed"
+import { FormInputProceed } from "./FormInputProceed"
 import { useNavigate } from "react-router-dom"
 
 
@@ -28,16 +28,16 @@ export const CreditCard = () => {
             navigate("/paymethods")
         }
     }
-
+    
     return (
-       <form action="" onSubmit={handleSubmit(onSubmit)} >
-            <CreditCardInputs name="name" control={control} label="Name" type="text" error={errors.name} />
-            <CreditCardInputs name="email" control={control} label="Email" type="email" error={errors.email} />
-            <CreditCardInputs name="phone" control={control} label="Phone" type="number" error={errors.phone} />
-            <CreditCardInputs name="address" control={control} label="Address" type="text" error={errors.address} />
-            <CreditCardInputs name="city" control={control} label="City" type="text" error={errors.city} />
-            <CreditCardInputs name="state" control={control} label="State" type="text" error={errors.state} />
-            <CreditCardInputs name="zip" control={control} label="Zip" type="number" error={errors.zip} />
+       <form action="" onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md mx-auto h-full">
+            <FormInputProceed name="name" control={control} label="Name" type="text" error={errors.name} />
+            <FormInputProceed name="email" control={control} label="Email" type="email" error={errors.email} />
+            <FormInputProceed name="phone" control={control} label="Phone" type="number" error={errors.phone} />
+            <FormInputProceed name="address" control={control} label="Address" type="text" error={errors.address} />
+            <FormInputProceed name="city" control={control} label="City" type="text" error={errors.city} />
+            <FormInputProceed name="state" control={control} label="State" type="text" error={errors.state} />
+            <FormInputProceed name="zip" control={control} label="Zip" type="number" error={errors.zip} />
             
             <button 
                 type="submit" 

@@ -1,3 +1,6 @@
+
+import { useCart } from "../../Hooks/useCartContext";
+import { CartItem } from "../../Types/types";
 import { MercadoPago } from "./MercadoPago";
 import { PayInputs } from "./PayInputs";
 import { Transfer } from "./Transfer";
@@ -10,6 +13,12 @@ export const PayMethods = () => {
     const handleMethodChange = (method: string) => {
         setSelectedMethod(selectedMethod === method ? null : method);
     };
+
+    const {dispatch} = useCart()
+
+    const clearCart = () => {
+        dispatch({type: "CLEAR_CART", payload: {} as CartItem})     
+    }
     
 
     return (
@@ -51,8 +60,9 @@ export const PayMethods = () => {
                <div className={`transition-all duration-500 ease-in-out ${selectedMethod === 'mercadoPago' ? 'opacity-100 max-h-[500px]' : 'opacity-0 max-h-0 overflow-hidden'}`}>
                 <MercadoPago />
                </div>
-               
-               <button className="bg-blue-500 text-white p-2 rounded-md w-[300px] mb-2 hover:bg-blue-600 transition-all duration-300 cursor-pointer font-bold" type="submit" >Pay</button>
+               {selectedMethod && (
+                <button className="bg-blue-500 text-white p-2 rounded-md w-[300px] mb-2 hover:bg-blue-600 transition-all duration-300 cursor-pointer font-bold" type="submit" onClick={clearCart} >Pay</button>
+               )}
             </div>
 
         </div>

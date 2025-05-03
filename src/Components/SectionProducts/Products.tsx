@@ -11,7 +11,7 @@ export const Products = () => {
     const [products, setProducts] = useState<Product[]>([]);
     const [error, setError] = useState<string | boolean>(false);
     const [loading, setLoading] = useState<boolean>(true);
-
+    
 
     useEffect(() => {
         getProducts().then((products) => {
@@ -38,6 +38,7 @@ export const Products = () => {
         toast.success("Product added to cart")
     }
  
+   
 
    
 
