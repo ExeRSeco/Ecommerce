@@ -35,6 +35,9 @@ interface Product {
     description: string;
     category: string;
     image: string;
+    thumbnail?: string;
+    images?: string[];
+    quantity: number;
 }
 
 

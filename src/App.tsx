@@ -1,17 +1,19 @@
 import { Header, Footer, Cart} from './Components/index'
 import { AppRouterProps } from './Types/types'
+import { useLocation } from 'react-router-dom'
 
+function App( {children}: AppRouterProps) {
+  const location = useLocation();
+  const isAuthPage = location.pathname === '/login' || location.pathname === '/register';
 
- function App( {children}: AppRouterProps) {
   return (
     <>
-      <Header />
+      {!isAuthPage && <Header />}
       <Cart />
       {children}
-      
-      <Footer />
+      {!isAuthPage && <Footer />}
     </>
-  )
- }
+  );
+}
 
- export default App
+export default App

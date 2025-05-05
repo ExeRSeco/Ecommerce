@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 export const AppHookContainer = () => {
 const queryClient = new QueryClient()
+
   return (
     <QueryClientProvider client={queryClient}>
     <BrowserRouter>
@@ -24,4 +25,5 @@ const queryClient = new QueryClient()
     </QueryClientProvider>
   )
 }
+
 

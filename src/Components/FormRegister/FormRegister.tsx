@@ -1,8 +1,8 @@
 export const FormRegister = () => {
     return (
-        <div className='container-register flex flex-col items-center justify-center h-screen w-full'>
-            <div className='back-to-home__register'>
-                <a href="/" className='text-white'>Back to home</a>
+        <div className='container-register flex flex-col items-center justify-center h-[80vh] w-full bg-gray-900 rounded-lg shadow-lg p-4 m-4  shadow-gray-800'>
+            <div className='back-to-home__register mb-4'>
+                <a href="/" className='text-white font-bold hover:text-blue-500 transition-all duration-300 bg-gray-900 border-2 border-white rounded-lg p-2'>Back to home</a>
             </div>
             <h2 className='text-5xl font-bold text-center text-white mb-4'>Register</h2>
 

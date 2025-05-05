@@ -6,8 +6,8 @@ export const schemaFormCheckout = z.object({
     phone: z.string().min(10, { message: "Phone is required" }),
     address: z.string().min(5, { message: "Address is required" }),
     city: z.string().min(3, { message: "City is required" }),
-    state: z.string().min(2, { message: "State is required" }),
-    zip: z.string().min(4, { message: "Zip is required" }),
+    state: z.string().min(5, { message: "State is required" }).max(10, { message: "State must be 2 characters long" }),
+    zip: z.string().min(4, { message: "Zip is required" }).max(4, { message: "Zip must be 4 digits long" }),
 }).refine((data) => data.name.length > 5, {
     path: ["name"],
     message: "Name must be at least 5 characters long", 
@@ -20,9 +20,9 @@ export const schemaFormCheckout = z.object({
   }).refine((data) => data.city.length > 5, {
     path: ["city"],
     message: "City must be at least 5 characters long",
-  }).refine((data) => data.state.length === 5, {
+  }).refine((data) => data.state.length >= 5 && data.state.length <= 10, {
     path: ["state"],
-    message: "State must be 5 characters long",
+    message: "State must be 5 to 10 characters long",
   }).refine((data) => data.zip.length === 4, {  
     path: ["zip"],
     message: "Zip must be 4 digits long",

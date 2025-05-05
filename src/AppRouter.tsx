@@ -1,5 +1,5 @@
 import { Navigate, Route } from "react-router-dom";
-import { Home, FormLogin, RoutesWithNotFound, Products, AboutLink, Checkout, PayMethods } from './Components/index'
+import { Home, FormLogin, RoutesWithNotFound, Products, AboutLink, Checkout, PayMethods, FormRegister } from './Components/index'
 import { PrivateGuard } from '../Private/Guard/privateGuard'
 import { PrivateRouter } from "./PrivateRouter";
 
@@ -9,6 +9,7 @@ export const AppRouter = () => {
             <Route path="/" element={<Navigate to={"/home"}/>} />
             <Route path="/home" element={<Home />} />
             <Route path="/login" element={<FormLogin />} />
+            <Route path="/register" element={<FormRegister />} />
             <Route path="/products" element={<Products  />} />
             <Route path="/about" element={<AboutLink />} />
             <Route path="/checkout" element={<Checkout />} />

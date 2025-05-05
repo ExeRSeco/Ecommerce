@@ -21,11 +21,11 @@ export const FormLogin = () => {
   }
 
   return (
-    <div className="container-login">
-        <div className="img-login">
+    <div className="container-login bg-gray-900  p-4 rounded-lg shadow-lg flex justify-center items-center m-4">
+        <div className="img-login bg-gray-100 h-full w-1/2 relative">
             <img src="./public/img/login1.jpg" alt="logo" className='img-login' />
-            <div className='back-to-home'>
-                <a href="/" className='text-white'>Back to home</a>
+            <div className='absolute top-4 right-4'>
+                <a href="/" className='bg-gray-900 border-2 border-white rounded-lg p-2 text-white font-bold text-xl hover:bg-white hover:text-gray-900 transition-all duration-300'>Back to home</a>
             </div>
         </div>
         <div className="form-login w-1/2 h-full flex flex-col justify-center items-center">
@@ -50,9 +50,9 @@ export const FormLogin = () => {
               className='border-2 border-white rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-white text-white' 
             />
 
-            <button type="submit" className='button-login text-white p-2 rounded-md transition-all duration-300 cursor-pointer font-bold'>Login</button>
+            <button type="submit" className='button-login text-white p-2 rounded-md transition-all duration-300 cursor-pointer font-bold bg-blue-500 hover:bg-blue-600'>Login</button>
             <div className='flex justify-center items-center'>
-              <p className='text-white'>Dont have an account? <a href="/register" className='link-register'>Register</a></p>
+              <p className='text-white'>Dont have an account? <a href="/register" className='link-register text-blue-500 hover:text-blue-600 transition-all duration-300'>Register</a></p>
             </div>
           </form>
         </div>
