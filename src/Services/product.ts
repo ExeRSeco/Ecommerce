@@ -1,28 +1,35 @@
 import { Product } from "../Types/types";
 
 const BASE_URL = 'https://dummyjson.com';
+const ITEMS_PER_PAGE = 12;
 
-export const getProducts = async (page = 0): Promise<Product[]> => {    
+export const getProducts = async (page = 1): Promise<Product[]> => {    
     try {
-        const response = await fetch(`${BASE_URL}/products?limit=12&skip=${page}`); 
+        const skip = (page - 1) * ITEMS_PER_PAGE;
+        console.log(`Fetching products - Page: ${page}, Skip: ${skip}, Limit: ${ITEMS_PER_PAGE}`);
+        
+        const response = await fetch(`${BASE_URL}/products?limit=${ITEMS_PER_PAGE}&skip=${skip}`); 
         
         if(!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const data = await response.json();
-        console.log('API Response:', data);
+        console.log(`Received ${data.products?.length || 0} products from API`);
         
         if (!data.products || !Array.isArray(data.products)) {
             throw new Error('Invalid response format from API');
         }
 
         // Asegurarse de que los precios sean números
-        return data.products.map((product: any) => ({
+        const processedProducts = data.products.map((product: any) => ({
             ...product,
             price: Number(product.price) || 0,
             quantity: 0
         }));
+
+        console.log(`Processed ${processedProducts.length} products`);
+        return processedProducts;
        
     } catch (error) {
         console.error('Error fetching products:', error);

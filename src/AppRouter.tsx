@@ -1,7 +1,8 @@
 import { Navigate, Route } from "react-router-dom";
-import { Home, FormLogin, RoutesWithNotFound, Products, AboutLink, Checkout, PayMethods, FormRegister } from './Components/index'
+import { Home, FormLogin, RoutesWithNotFound, AboutLink, Checkout, PayMethods, FormRegister } from './Components/index'
 import { PrivateGuard } from '../Private/Guard/privateGuard'
 import { PrivateRouter } from "./PrivateRouter";
+import { ProductsFiltered } from "./Components/SectionProducts/ProductsFiltered";
 
 export const AppRouter = () => {
     return (
@@ -10,12 +11,13 @@ export const AppRouter = () => {
             <Route path="/home" element={<Home />} />
             <Route path="/login" element={<FormLogin />} />
             <Route path="/register" element={<FormRegister />} />
-            <Route path="/products" element={<Products  />} />
+            <Route path="/products" element={<ProductsFiltered onFilterChange={() => {}} />} />
             <Route path="/about" element={<AboutLink />} />
-            <Route path="/checkout" element={<Checkout />} />
+            
             <Route path="/paymethods" element={<PayMethods />} />
             <Route element={<PrivateGuard />}>
                 <Route path="/private/*" element={<PrivateRouter />} /> 
+                <Route path="/checkout" element={<Checkout />} />
             </Route>
         </RoutesWithNotFound> 
     )
