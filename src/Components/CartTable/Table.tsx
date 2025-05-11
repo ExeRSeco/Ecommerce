@@ -38,6 +38,7 @@ export const CartTable = () => {
     }
     
     const handleCheckout = () => {
+
         setModalState(false)
     }
    
