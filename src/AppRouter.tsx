@@ -13,11 +13,11 @@ export const AppRouter = () => {
             <Route path="/register" element={<FormRegister />} />
             <Route path="/products" element={<ProductsFiltered onFilterChange={() => {}} />} />
             <Route path="/about" element={<AboutLink />} />
-            
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="/paymethods" element={<PayMethods />} />
             <Route element={<PrivateGuard />}>
                 <Route path="/private/*" element={<PrivateRouter />} /> 
-                <Route path="/checkout" element={<Checkout />} />
+                
             </Route>
         </RoutesWithNotFound> 
     )

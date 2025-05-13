@@ -46,8 +46,8 @@ export const CartTable = () => {
             {/* Vista de escritorio */}
             <div className="hidden md:block">
                 <table className="w-full">
-                    <thead className={`${isCheckout ? 'bg-gray-50' : 'bg-gray-800'} text-gray-900`}>
-                        <tr className="text-center text-sm text-white">
+                    <thead className={`${isCheckout ? 'bg-gray-50 text-black' : 'bg-gray-800 text-white'}`}>
+                        <tr className="text-center text-sm">
                             <th className="p-4 font-semibold">Name</th>
                             <th className="p-4 font-semibold">Price</th>
                             <th className="p-4 font-semibold">Delete</th>
@@ -55,11 +55,11 @@ export const CartTable = () => {
                             <th className="p-4 font-semibold">Add</th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-200 text-white">
+                    <tbody className="divide-y divide-gray-200">
                         {cartItems.map((item: CartItem) => {
                             const productInfo = getProductInfo(item.id);
                             return (
-                                <tr key={item.id} className={`${isCheckout ? 'hover:bg-gray-50' : 'hover:bg-gray-800'} transition-colors duration-200`}>
+                                <tr key={item.id} className={`${isCheckout ? 'hover:bg-gray-50 text-black' : 'hover:bg-gray-800 text-white'} transition-colors duration-200`}>
                                     <td className="p-4">
                                         <div className="flex items-center justify-center">
                                             <img 
@@ -82,7 +82,7 @@ export const CartTable = () => {
                                             </button>
                                         </div>
                                     </td>
-                                    <td className="p-4 text-center">
+                                    <td className="p-4 text-cente">
                                         <span className="font-medium">{getQuantity(item.id)}</span>
                                     </td>
                                     <td className="p-4">
@@ -107,7 +107,7 @@ export const CartTable = () => {
                 {cartItems.map((item: CartItem) => {
                     const productInfo = getProductInfo(item.id);
                     return (
-                        <div key={item.id} className={`p-4 ${isCheckout ? 'bg-white' : 'bg-gray-800'}`}>
+                        <div key={item.id} className={`p-4 ${isCheckout ? 'bg-white text-black' : 'bg-gray-800 text-white'}`}>
                             <div className="flex items-center gap-4 mb-4">
                                 <img 
                                     src={item.image || productInfo?.thumbnail} 
@@ -141,7 +141,7 @@ export const CartTable = () => {
                 })}
             </div>
 
-            <div className={`p-4 ${isCheckout ? 'bg-gray-50 border-t border-gray-200' : 'bg-gray-800'}`}>
+            <div className={`p-4 ${isCheckout ? 'bg-gray-50 border-t border-gray-200 text-black' : 'bg-gray-800 text-white'}`}>
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-xl font-bold">Total: ${total()}</p>
                     <div className="flex gap-3">
