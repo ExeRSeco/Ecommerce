@@ -4,7 +4,6 @@ interface Category {
     id: number;
     name: string;
     url: string;
-
 }
 
 export const CategoriesMainSection = () => {
@@ -20,18 +19,32 @@ export const CategoriesMainSection = () => {
         fetchCategories();
     }, []);
    
-
     return (
-        <div className="categories-main-section bg-gray-100 h-[100vh] flex flex-col items-center justify-center">
-                <h3 className="categories-main-section__title text-4xl font-bold text-center mb-4">Categories</h3>
-                <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
-                <div className="categories-main-section__categories grid grid-cols-1 md:grid-cols-4 gap-4 mx-auto max-w-4xl mt-8" > 
+        <section className="min-h-[calc(100vh-80px)] bg-gray-50 py-12 px-4 mt-20">
+            <div className="max-w-7xl mx-auto">
+                <div className="text-center mb-8">
+                    <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                        Categories
+                    </h3>
+                    <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
                     {categories.map((category) => (
-                    <div key={category.id} className="categories-main-section__categories--category bg-white rounded-lg p-4 flex flex-col items-center justify-center h-[200px] w-[200px] hover:bg-gray-100 cursor-pointer shadow-lg transition-all duration-300">
-                        <h4 className="categories-main-section__categories--category-title text-2xl font-bold text-center text-gray-800 mt-4" key={category.id}>{category.name}</h4>
-                    </div>
-                ))} 
+                        <div 
+                            key={category.id} 
+                            className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+                        >
+                            <div className="aspect-square flex flex-col items-center justify-center text-center">
+                                <h4 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                                    {category.name}
+                                </h4>
+                                <div className="mt-4 w-12 h-1 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
-    )
-}
+        </section>
+    );
+};

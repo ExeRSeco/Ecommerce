@@ -4,7 +4,7 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { CartItem } from "../../Types/types";
 import { useCart } from "../../Hooks/useCartContext";
 import { getProducts } from "../../Services/product";
-import { useFilters } from "../../Context/FilterContext";
+import { useFilters } from "../../Contexts/FilterContext";
 
 interface Product {
     id: number;
